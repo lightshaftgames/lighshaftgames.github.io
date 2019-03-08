@@ -134,6 +134,7 @@
           <section class="js-section">
               <h2 class="section__title">Know issues</h2>
               <p>We disabled the fix on frame drop for editor because sometimes the editor gives too much frame drops and the video be unplayable in editor, we noticed this is a bug in editor.</p>
+              <p>For version 2018.3+ you can notice some frame drops and out of sync in editor, we tested in the builds here, and worked normal, i think is related to the editor bug (too much frame Drops).</p>
               <p>Some versions of unity there's a sync issue, the video time and audio time are the same, but keep goind out of sync, the most stable and newer version is the 2018.2. </p>
               <p>Safari webgl: unity video player(unity side) need to support webgl 1.0.</p>
               <p>If you are using force get from web server and are deploying to android, you need to change one url, search for "https://unity-dev-youtube.herokuapp.com/api/info?url=" in YoutubePlayer.cs and change it to "https://temp-live-unity.herokuapp.com/api/info?url=", or you can deploy your own server look at the folder <b>"Youtube Server Source"</b> inside Lightshaft folder, and change that url to your own url.</p>
