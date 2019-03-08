@@ -1,0 +1,156 @@
+﻿<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Scribbler Documentation - a code documentation page template for codrops</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,600,700,800,900" rel="stylesheet">
+    <link rel="stylesheet" href="scribbler-global.css">
+    <link rel="stylesheet" href="scribbler-doc.css">
+    <link rel="author" href="humans.txt">
+  </head>
+  <body>
+    <div class="doc__bg"></div>
+    <nav class="header">
+      <h1 class="logo">Youtube Video Player <span class="logo__thin">Documentation</span></h1>
+      
+    </nav>
+    <div class="wrapper">
+      <aside class="doc__nav">
+        <ul>
+          <li class="js-btn selected">Get Started</li>
+          <li class="js-btn">Prefabs</li>
+          <li class="js-btn">Usage</li>
+          <li class="js-btn">Know Issues</li>
+            <li class="js-btn">Support</li>
+        </ul>
+      </aside>
+      <article class="doc__content">
+          <section class="js-section">
+              <h2 class="section__title">Get Started</h2>
+              <p>
+                  This plugin by default uses the unity video player, we recommend you to use <a href="https://unity3d.com/unity/whats-new/unity-2018.2.0"><b>"unity 2018.2"</b></a> is the version that have the most stable video player.
+                  Some versions of unity there's a lot of issues in video player system, you can use your custom player too.
+              </p>
+              <p>Tested on android 4.3+ only.</p>
+              <h3><b>Things you need to know about the youtube player:</b></h3>
+              <p>-For high quality video playback you need to have a good speed of internet.</p>
+              <p>-For high quality playback we use 2 video players, since unity don't support the audio format of youtube, we have a video with low quality not rendering(api mode), using only the audio, and other video without audio, both synced with other.</p>
+              <p>-You can use your own player or third party players like: Easy Movie Texture, AvPro, UMP, VLC for unity, etc... We have a prefab to use with that, you just need to call your function to play the generated url.</p>
+              <p>-We Update the asset every time that have urgent fix, if there's changes on youtube side for example (uncommon, happened 1 time only), we provide solution very fast using email support, to fit with youtube changes you can get the urls from our dedicated server (force get from web server boolean in the settings), if the connection retry for 2 times, automatically we get the url from the server, the server is updated on the go, at every change.</p>
+              <h2 class="section__title">Installation</h2>
+              <p><b>The instalation is easy, you just need to import the package to your project, and drag the desired prefab to the scene, we recommend to check the demos scenes first.</b></p>
+          </section>
+          <section class="js-section">
+              <h2 class="section__title">Prefabs</h2>
+              <p>We have 4 kind of prefabs, use what you desire for your project and configure what in the way you like, to fit your project.</p>
+              <p>The prefabes are in the folder Lightshaft/Resources/Prefabs/</p>
+              <p>Prefabs:</p>
+              <div style="width: 100%"><img src="Screenshot_7.png" /></div>
+              <table id="customers">
+                  <tr>
+                      <th>Name</th>
+                      <th>Function</th>
+                  </tr>
+                  <tr>
+                      <td>FullscreenYoutubePlayer</td>
+                      <td>Play youtube videos in fullscreen, you can configure how it will fit in the screen, enable/disable player controls.</td>
+                  </tr>
+                  <tr>
+                      <td>Youtube360PlayerFullscreen</td>
+                      <td>It's a sphere model that render the video, and a simple control (you can change for your own controll, like ar, vr games), the video are rendered in the sphere material, you can change the render target easy.</td>
+                  </tr>
+                  <tr>
+                      <td>YoutubePlayer</td>
+                      <td>It's a simple player, that comes with a plane to render the video, you can change the render target easy.</td>
+                  </tr>
+                  <tr>
+                      <td>YoutubePlayer_ForCustomPlayer</td>
+                      <td>This prefab dont play the videos, only load the urls so you can pass that url to your custom player.</td>
+                  </tr>
+              </table>
+              <p>The settings in the prefabs explains for itself.</p>
+              <hr />
+          </section>
+          <section class="js-section">
+              <h2 class="section__title">Usage</h2>
+              <h3 class="section__title">How to play youtube video</h3>
+              <p>There's two ways to call to play the youtube video. </p>
+              <p><b>First method:</b><br />You can put the youtube link in the Youtube url field. And configure the settings, like (auto start, show player controls, etc). If you are not using play on start you can use the second method.</p>
+              <p>
+                  <b>Second method:</b><br />You can reference YoutubePlayer class in your code and call the Play function using the url as parameter example:<br />
+                  <br /><b>
+                      public YoutubePlayer ytPlayer;<br />
+                      void YourCustomFunction(){<br />
+                      ytPlayer.Play("youtubelink or id");<br />
+                      }<br />
+                  </b>
+
+              </p>
+              <div> <img src="Screenshot_11.png" /> </div>
+              <h3 class="section__title">How to change the render target</h3>
+              <p>To change the render target is easy, see image for reference, you can set if you want to play in fullscreen rendering to camera or you can put in a object material(for UI we recommend Render Texture(demo included)), you can put in any kind of object examples:(virtual cinema screen, cubes,planes, 3D tv's).</p>
+              <div> <img src="Screenshot_8.png" width="100%" /> </div>
+              <div> <img src="Screenshot_9.png" /> </div>
+              <h3>Set video start time</h3>
+              <p>To make video start from a desired time, you can use two ways, using a customized url from youtube or enable the bool Start From Second in inspector and put the time in seconds in the Start From Second Time.</p>
+              <p>Using custom url: To start a video from a desired time using a custom url you can set the url like that: <b>https://youtu.be/M38aWHxwtXE?t=32 </b>where <b>'M38aWHxwtXE'</b> is the video id, and <b>t=32</b> is the time. </p>
+              <p>Using setting in inspector: Just enable the bool Start From Second and put the time in the Start From Second Time. </p>
+
+              <h3>Change video time</h3>
+              <p>You can change the video time calling the funtion Seek(); passing the time as parameter.</p>
+
+              <h3>Changing Progress Bar Width</h3>
+              <p>If the progress bar not fit your resolution you can set the width of the progress bar, just select the two bars and set the width(image)</p>
+              <img src="Screenshot_55.png" width="100%" />
+
+              <h3>Custom Events</h3>
+              <p>If you want to customize the functionality, you have some events (image) that you can use when things are done in background. You can put your custom functions there.</p>
+              <div> <img src="Screenshot_10.png" /> </div>
+
+              <h3>Using other video players </h3>
+              <p>If you dont want to use unity video player you can use other video player like UMP, AVpro, Easy Movie Texture,etc..</p>
+              <p>To do that you can use YoutubePlayer_ForCustomPlayer prefab or enable the bool LoadYoutubeUrlsOnly, this will only load the url that you need to pass to your custom player. The result will be called in the function UrlReadyToUse.</p>
+
+              <h3>Render the same video to other objects</h3>
+              <p>You can render the same video to other objects, just use this option(image), and drag the other objects that you want (the material will be overwrited by video texture)</p>
+              <div> <img src="Screenshot_12.png" /> </div>
+
+              <h3>Customizing player controls</h3>
+              <p>You can edit the canvas that are present in the prefab: </p>
+              <div> <img src="Screenshot_13.png" /> </div>
+
+              <h3>Get video title</h3>
+              <p>You can get the video title using GetVideoTitle, this will only return the title if the video are start to load. </p>
+
+              <h3>Deploy to webgl</h3>
+              <p>Works for Firefox and Chrome</p>
+              <p>We recommend you to check the folder <b>"Webgl Youtube Player Setup"</b> in the project, upload the files to your server and change the url "https://youtubewebgl.herokuapp.com/download.php?mime=video/mp4&title=generatedvideo&token=" in YoutubePlayer to your own server, like in the readme of that folder. This will improve the speed of load.</p>
+              <p>This is important because, webgl there's a CORS policy, so you can't load external sites, you will use your server as a proxy, and will work.</p>
+              <hr />
+          </section>
+          <section class="js-section">
+              <h2 class="section__title">Know issues</h2>
+              <p>We disabled the fix on frame drop for editor because sometimes the editor gives too much frame drops and the video be unplayable in editor, we noticed this is a bug in editor.</p>
+              <p>Some versions of unity there's a sync issue, the video time and audio time are the same, but keep goind out of sync, the most stable and newer version is the 2018.2. </p>
+              <p>Safari webgl: unity video player(unity side) need to support webgl 1.0.</p>
+              <p>If you are using force get from web server and are deploying to android, you need to change one url, search for "https://unity-dev-youtube.herokuapp.com/api/info?url=" in YoutubePlayer.cs and change it to "https://temp-live-unity.herokuapp.com/api/info?url=", or you can deploy your own server look at the folder <b>"Youtube Server Source"</b> inside Lightshaft folder, and change that url to your own url.</p>
+            <p>Buffer!! unity video player there's no buffer yet, this is very sad. Hope they add this soon, will improve a lot the plugin.</p>
+              <p>Sometimes using editor the video frames drops more than normal, but i noticed that is a editor behavior only.</p>
+          </section>
+
+          <section class="js-section">
+              <h2 class="section__title">Support</h2>
+              <p>If you are having issues, mail to <a href="mailto:kelvinparkour@gmail.com">kelvinparkour@gmail.com</a></p>
+          </section>
+      </article>
+    </div>
+
+    <footer class="footer">Lightshaft games. We love to create. For freelancer jobs <a href="mailto:kelvinparkour@gmail.com">kelvinparkour@gmail.com</a>kelvinparkour@gmail.com</footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="scribbler.js"></script>
+  </body>
+</html>
